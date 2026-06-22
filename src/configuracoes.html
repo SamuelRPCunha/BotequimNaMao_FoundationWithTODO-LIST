@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Botequim na Mão - Configurações Visuais</title>
+  <link rel="icon" href="/images/geral/header/logo_botequim_na_mao_1.png" type="image/png">
+  <style>
+    /* Estilos locais para os swatches de cores e opções de borda */
+    .color-swatch {
+      width: 100%;
+      height: 60px;
+      border-radius: var(--global-radius, 0.625rem);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    .color-swatch:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .color-swatch.active {
+      border: 3px solid #333;
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    body.dark-theme .color-swatch.active {
+      border: 3px solid #fff;
+    }
+
+    .border-option {
+      width: 100%;
+      padding: 1.5rem 1rem;
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      border: 2px solid transparent;
+    }
+    .border-option:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+    .border-option.active {
+      border: 2px solid #333;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+    body.dark-theme .border-option.active {
+      border: 2px solid #fff;
+    }
+
+    /* Variações de borda para os botões de demonstração */
+    .radius-square { border-radius: 0 !important; }
+    .radius-subtle { border-radius: 0.625rem !important; }
+    .radius-rounded { border-radius: 1.25rem !important; }
+    .radius-pill { border-radius: 50rem !important; }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER - TOP BAR FOUNDATION -->
+  <div class="top-bar shadow-sm" style="background-color: #fff; border-bottom: 1px solid #e6e6e6; min-height: 70px;">
+    <div class="grid-container flex-container align-middle flex-wrap" style="padding: 0.5rem 0; width: 100%; justify-content: space-between;">
+      <div class="top-bar-left" style="flex: 0 0 auto;">
+        <ul class="menu align-middle" style="background-color: transparent;">
+          <li>
+            <a href="index.html" class="flex-container align-middle" style="display: flex; padding: 0; gap: 0.5rem;">
+              <img src="./images/geral/header/logo_botequim_na_mao_1.png" alt="Logo" width="50" class="rounded-circle">
+              <div>
+                <h1 class="h5 mb-0 text-primary fw-bold" style="margin:0; font-size: 1.25rem;">Botequim na Mão</h1>
+                <p class="text-muted mb-0" style="margin:0; font-size: 0.8rem; color: #6c757d;">Seu cardápio inteligente</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="top-bar-right" style="flex: 0 0 auto; display: flex; justify-content: flex-end;">
+        <ul class="menu vertical medium-horizontal align-right" style="background-color: transparent; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+          <li><button class="button primary" type="button" data-toggle="nav-dropdown" style="margin-bottom:0; border-radius: 50rem;">☰ Menu</button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="page-config">
+    <!-- HERO SECTION SUTIL -->
+    <div class="bg-primary text-white text-center py-5" style="padding: 3rem 0;">
+      <h1 class="fw-bold mb-2">Configurações Visuais</h1>
+      <p class="lead mb-0">Deixe o Botequim com a sua cara.</p>
+    </div>
+
+    <main class="grid-container" style="padding-top: 3rem; padding-bottom: 5rem; min-height: 60vh;">
+      
+      <!-- SEÇÃO: CONJUNTOS DE CORES -->
+      <h2 class="fw-bold mb-4 text-primary">Conjuntos de Cores</h2>
+      <p class="text-muted mb-4">Selecione um conjunto de cores para definir a identidade completa do sistema (Cores Primárias, Secundárias e Alertas). Todas as telas serão atualizadas imediatamente.</p>
+      
+      <div class="grid-x grid-margin-x grid-margin-y mb-5" id="color-palette-container">
+        <!-- Injetado via JS -->
+      </div>
+
+      <hr style="margin: 3rem 0; border-color: #e6e6e6;">
+
+      <!-- SEÇÃO: ARREDONDAMENTO -->
+      <h2 class="fw-bold mb-4 text-primary">Estilo das Bordas</h2>
+      <p class="text-muted mb-4">Escolha quão arredondados você deseja que os cartões, botões e campos de texto fiquem.</p>
+      
+      <div class="grid-x grid-margin-x grid-margin-y" id="border-radius-container">
+        <div class="cell small-12 medium-4">
+          <div class="border-option radius-square" data-radius="0px">
+            Quadrado<br><small>(0px)</small>
+          </div>
+        </div>
+        <div class="cell small-12 medium-4">
+          <div class="border-option radius-subtle" data-radius="0.625rem">
+            Sutil<br><small>(10px)</small>
+          </div>
+        </div>
+        <div class="cell small-12 medium-4">
+          <div class="border-option radius-rounded" data-radius="1.25rem">
+            Arredondado<br><small>(20px)</small>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="text-center" style="background-color: #fff; padding: 2rem 0; border-top: 1px solid #e6e6e6;">
+    <div class="grid-container">
+      <img src="./images/geral/header/logo_botequim_na_mao_1.png" alt="Logo" width="48" class="rounded-circle" style="margin-bottom: 1rem;">
+      <p style="font-size: 0.9rem; color: #6c757d; margin-bottom: 1rem;">
+        &copy; 2026 Botequim na Mão. Todos os direitos reservados.<br>
+        Desenvolvido por Samuel R. P. Cunha
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+
+</html>
